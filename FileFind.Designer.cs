@@ -39,6 +39,7 @@
             this._toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this._toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this._toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this._toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +75,8 @@
             this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._toolStripTextBox,
             this._toolStripSeparator,
-            this._toolStripDropDownButton});
+            this._toolStripDropDownButton,
+            this.toolStripButton1});
             this._toolStrip.Location = new System.Drawing.Point(0, 0);
             this._toolStrip.Name = "_toolStrip";
             this._toolStrip.Size = new System.Drawing.Size(573, 25);
@@ -108,23 +110,33 @@
             // _toolStripMenuItem1
             // 
             this._toolStripMenuItem1.Name = "_toolStripMenuItem1";
-            this._toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this._toolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
             this._toolStripMenuItem1.Text = "inc";
             this._toolStripMenuItem1.Click += new System.EventHandler(this._toolStripMenuItem1_Click);
             // 
             // _toolStripMenuItem2
             // 
             this._toolStripMenuItem2.Name = "_toolStripMenuItem2";
-            this._toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this._toolStripMenuItem2.Size = new System.Drawing.Size(96, 22);
             this._toolStripMenuItem2.Text = "incc";
             this._toolStripMenuItem2.Click += new System.EventHandler(this._toolStripMenuItem2_Click);
             // 
             // _toolStripMenuItem3
             // 
             this._toolStripMenuItem3.Name = "_toolStripMenuItem3";
-            this._toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this._toolStripMenuItem3.Size = new System.Drawing.Size(96, 22);
             this._toolStripMenuItem3.Text = "incf";
             this._toolStripMenuItem3.Click += new System.EventHandler(this._toolStripMenuItem3_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // FileFind
             // 
@@ -160,5 +172,6 @@
         private System.Windows.Forms.ToolStripMenuItem _toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem _toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem _toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

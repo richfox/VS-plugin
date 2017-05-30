@@ -11,6 +11,10 @@ using System.Windows.Forms;
 using EnvDTE;
 using EnvDTE80;
 
+using IronPython.Runtime; //PythonDictionary
+using IronPython.Hosting; //PythonEngine
+using Microsoft.Scripting; //ScriptDomainManager
+using Microsoft.Scripting.Hosting;
 
 
 namespace MyAddin
@@ -21,6 +25,16 @@ namespace MyAddin
         public DTE2 Application;
         public AddIn AddInInstance;
         public Window FileFindWnd;
+
+        /// <summary>
+        /// Main IronPython ScriptEngine
+        /// </summary>
+        public ScriptEngine engine;
+
+        /// <summary>
+        /// Main IronPython ScriptScope
+        /// </summary>
+        public ScriptScope scope;
 
         public FileFind()
         {
@@ -126,7 +140,7 @@ namespace MyAddin
 
         private void _toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            string path = "F:\\usr3\\hicad\\180X\\dev\\Source\\inc";
+            string path = "F:\\usr3\\hicad\\220X\\dev\\Source\\inc";
 
             if (_toolStripMenuItem1.Checked == false)
             {
@@ -144,7 +158,7 @@ namespace MyAddin
 
         private void _toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            string path = "F:\\usr3\\hicad\\180X\\dev\\Source\\incc";
+            string path = "F:\\usr3\\hicad\\220X\\dev\\Source\\incc";
 
             if (_toolStripMenuItem2.Checked == false)
             {
@@ -162,7 +176,7 @@ namespace MyAddin
 
         private void _toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            string path = "F:\\usr3\\hicad\\180X\\dev\\Source\\incf";
+            string path = "F:\\usr3\\hicad\\220X\\dev\\Source\\incf";
 
             if (_toolStripMenuItem3.Checked == false)
             {
@@ -201,6 +215,23 @@ namespace MyAddin
                     item.Remove();
                 }
             }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            //Create the ScriptRuntime
+            engine = Python.CreateEngine();
+            //Create the scope for the ScriptEngine
+            scope = engine.CreateScope();
+            //Add IronPython Libs
+            var paths = engine.GetSearchPaths();
+            paths.Add(@"C:\IronPython-2.7.6.3\Lib");
+            engine.SetSearchPaths(paths);
+
+
+            var rt = engine.ExecuteFile("D:\\Cskill\\PythonScript\\dangdang\\dangdangPic.py", scope);
+
+            //var name = scope.GetVariable("lineContent");
         }
     }
 }
